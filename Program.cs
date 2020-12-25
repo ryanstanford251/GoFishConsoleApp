@@ -5,9 +5,11 @@ namespace GoFishConsoleApp
 {
     class Program
     {
+        static int matched = 0;
+        static int points = 0;
+        static CardGame newGame = new CardGame();
         static void Main(string[] args)
         {
-            CardGame newGame = new CardGame();
             /*Console.WriteLine("Player1 Cards:\n");
             newGame.ShowHand(newGame.yourCards);
             Console.WriteLine("\n\nPlayer2 Cards:\n");
@@ -30,12 +32,9 @@ namespace GoFishConsoleApp
             //v1
             //Determine if a book should be closed i.e. a player has collected all four cards in a book
 
-            int matched = 0;
 
             foreach (var book in newGame.Books)
             {
-                while (matched != 4)
-                {
                     matched = 0;
                     for (int i = 0; i < newGame.yourCards.Count; i++)
                     {
@@ -52,21 +51,33 @@ namespace GoFishConsoleApp
                                         book.Add(newGame.yourCards[x]);
                                         newGame.yourCards.Remove(newGame.yourCards[x]);
                                         x--;
-                                    
+                                        matched++;
+                                    }
+                                    if (matched == 8)
+                                    {
+                                        break;
                                     }
                                 }
                             }
+                            if (matched == 8)
+                            {
+                                break;
+                            }
                         }
                     }
+                if (matched == 8)
+                {
+                    break;
                 }
             }
 
 
 
-
+            //write content of a list of lists with a for loop
             for (int i = 0; i < newGame.Books.Count; i++)
             {
-                Console.WriteLine(newGame.Books[i]);
+                var book = newGame.Books[i];
+                Console.WriteLine(book[0]);
             }
 
 
@@ -110,9 +121,50 @@ namespace GoFishConsoleApp
             {
                 Console.WriteLine(card);
             }
-
-            
-
         }
+
+
+
+
+        bool checkForPoints()
+        {
+            foreach (var book in newGame.Books)
+            {
+                matched = 0;
+                for (int i = 0; i < newGame.yourCards.Count; i++)
+                {
+                    if (newGame.yourCards[i].StartsWith(book[0]))
+                    {
+                        matched++;
+
+                        if (matched == 4)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+
+        int applyPoints()
+        {
+            if (checkForPoints())
+            {
+                return points += 1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        //need to push to git
+
+
     }
 }
