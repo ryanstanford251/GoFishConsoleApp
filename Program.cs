@@ -10,6 +10,14 @@ namespace GoFishConsoleApp
         static CardGame newGame = new CardGame();
         static void Main(string[] args)
         {
+
+
+            if (checkForPoints())
+            {
+                Console.WriteLine("True");
+            }
+
+
             /*Console.WriteLine("Player1 Cards:\n");
             newGame.ShowHand(newGame.yourCards);
             Console.WriteLine("\n\nPlayer2 Cards:\n");
@@ -33,7 +41,7 @@ namespace GoFishConsoleApp
             //Determine if a book should be closed i.e. a player has collected all four cards in a book
 
 
-            foreach (var book in newGame.Books)
+ /*           foreach (var book in newGame.Books)
             {
                     matched = 0;
                     for (int i = 0; i < newGame.yourCards.Count; i++)
@@ -70,15 +78,16 @@ namespace GoFishConsoleApp
                     break;
                 }
             }
-
+*/
 
 
             //write content of a list of lists with a for loop
-            for (int i = 0; i < newGame.Books.Count; i++)
+
+/*            for (int i = 0; i < newGame.Books.Count; i++)
             {
                 var book = newGame.Books[i];
                 Console.WriteLine(book[0]);
-            }
+            }*/
 
 
 
@@ -126,7 +135,7 @@ namespace GoFishConsoleApp
 
 
 
-        bool checkForPoints()
+        static bool checkForPoints()
         {
             foreach (var book in newGame.Books)
             {
@@ -139,12 +148,17 @@ namespace GoFishConsoleApp
 
                         if (matched == 4)
                         {
+                            for (int x = 0; x < newGame.yourCards.Count; x++)
+                            {
+                                if (newGame.yourCards[x].StartsWith(book[0]))
+                                {
+                                    book.Add(newGame.yourCards[x]);
+                                    newGame.yourCards.Remove(newGame.yourCards[x]);
+                                    x--;
+                                }
+                            }
                             return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
+                        } 
                     }
                 }
             }
@@ -163,7 +177,7 @@ namespace GoFishConsoleApp
             }
         }
 
-        //need to push to git
+        
 
 
     }
