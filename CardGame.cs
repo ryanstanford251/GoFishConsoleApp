@@ -5,30 +5,35 @@ using System.Text;
 
 namespace GoFishConsoleApp
 {
-    class CardGame
+    static class CardGame
     {
-        public List<string> deckOfCards = new List<string>();
-        public List<string> yourCards { get; private set; } = new List<string>();
-        public List<string> computerCards { get; private set; } = new List<string>();
-        public List<List<string>> Books = new List<List<string>>();
+        static public List<string> deckOfCards = new List<string>();
+        static public List<string> yourCards { get; private set; } = new List<string>();
+        static public List<string> computerCards { get; private set; } = new List<string>();
+        static public List<List<string>> Books = new List<List<string>>();
 
-        Random random = new Random();
+        static Random random = new Random();
         
-        public CardGame()
+
+        
+
+
+        static CardGame()
         {
             setUp();
             //dealCards(7, yourCards);
             //dealCards(7, computerCards);
 
+            //test
             yourCards.Add("Two of Hearts");
             yourCards.Add("Ace of Hearts");
             yourCards.Add("Three of Clubs");
             yourCards.Add("Ace of Spades");
             yourCards.Add("Jack of Diamonds");
             yourCards.Add("Ace of Diamonds");
-            yourCards.Add("Ace of Clubs");
+            yourCards.Add("Ace of Clubs");    
         }
-        private void setUp()
+        static public void setUp()
         {
             deckOfCards.Add("Ace of Hearts");
             deckOfCards.Add("Ace of Diamonds");
@@ -83,6 +88,7 @@ namespace GoFishConsoleApp
             deckOfCards.Add("King of Clubs");
             deckOfCards.Add("King of Spades");
 
+            List<string> Ace = new List<string>();
             List<string> Two = new List<string>();
             List<string> Three = new List<string>();
             List<string> Four = new List<string>();
@@ -127,8 +133,7 @@ namespace GoFishConsoleApp
 
         }
 
-           public List<string> Ace = new List<string>();
-        private void dealCards(int numberOfCards, List<string> player)
+        static private void dealCards(int numberOfCards, List<string> player)
         {
             for (int i = 0; i < numberOfCards; i++)
             {
@@ -139,7 +144,7 @@ namespace GoFishConsoleApp
             }
         }
 
-        public void ShowHand(List<string> player)
+        static public void ShowHand(List<string> player)
         {
             foreach (var card in player)
             {
@@ -147,7 +152,7 @@ namespace GoFishConsoleApp
             }
         }
 
-        public void DrawCard(List<string> player)
+        static public void DrawCard(List<string> player)
         {
             int index = random.Next(1, deckOfCards.Count);
             string cardDrawn = deckOfCards[index];
@@ -155,7 +160,7 @@ namespace GoFishConsoleApp
             deckOfCards.Remove(cardDrawn);
         }
 
-        public void DrawCard(List<string> player, int numberOfCards)
+        static public void DrawCard(List<string> player, int numberOfCards)
         {
             for (int i = 0; i < numberOfCards; i++)
             {

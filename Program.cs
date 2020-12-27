@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using static GoFishConsoleApp.CardGame;
 
 namespace GoFishConsoleApp
 {
@@ -7,11 +8,11 @@ namespace GoFishConsoleApp
     {
         static int matched = 0;
         static int points = 0;
-        static CardGame newGame = new CardGame();
+        
         static void Main(string[] args)
         {
 
-
+            //setUp();
 
             applyPoints();
             Console.WriteLine(points);
@@ -122,10 +123,10 @@ namespace GoFishConsoleApp
             }*/
 
 
-
-            Console.WriteLine($"Books Ace count: {newGame.Ace.Count}");
-            Console.WriteLine($"yourCards count: {newGame.yourCards.Count}");
-            foreach (var card in newGame.yourCards)
+            //Test
+            //Console.WriteLine($"Books Ace count: {Ace.Count}");
+            Console.WriteLine($"yourCards count: {yourCards.Count}");
+            foreach (var card in yourCards)
             {
                 Console.WriteLine(card);
             }
@@ -136,23 +137,23 @@ namespace GoFishConsoleApp
 
         static bool checkForPoints()
         {
-            foreach (var book in newGame.Books)
+            foreach (var book in Books)
             {
                 matched = 0;
-                for (int i = 0; i < newGame.yourCards.Count; i++)
+                for (int i = 0; i < yourCards.Count; i++)
                 {
-                    if (newGame.yourCards[i].StartsWith(book[0]))
+                    if (yourCards[i].StartsWith(book[0]))
                     {
                         matched++;
 
                         if (matched == 4)
                         {
-                            for (int x = 0; x < newGame.yourCards.Count; x++)
+                            for (int x = 0; x < yourCards.Count; x++)
                             {
-                                if (newGame.yourCards[x].StartsWith(book[0]))
+                                if (yourCards[x].StartsWith(book[0]))
                                 {
-                                    book.Add(newGame.yourCards[x]);
-                                    newGame.yourCards.Remove(newGame.yourCards[x]);
+                                    book.Add(yourCards[x]);
+                                    yourCards.Remove(yourCards[x]);
                                     x--;
                                 }
                             }
