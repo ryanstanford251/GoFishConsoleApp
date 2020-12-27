@@ -156,6 +156,7 @@ namespace GoFishConsoleApp
                                     x--;
                                 }
                             }
+                            Console.WriteLine($"{book[0]} book is closed");
                             return true;
                         } 
                     }
