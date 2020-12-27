@@ -12,10 +12,9 @@ namespace GoFishConsoleApp
         {
 
 
-            if (checkForPoints())
-            {
-                Console.WriteLine("True");
-            }
+
+            applyPoints();
+            Console.WriteLine(points);
 
 
             /*Console.WriteLine("Player1 Cards:\n");
@@ -165,9 +164,9 @@ namespace GoFishConsoleApp
             return false;
         }
 
-        int applyPoints()
+        static int applyPoints()
         {
-            if (checkForPoints())
+            if (checkForPoints() == true)
             {
                 return points += 1;
             }
