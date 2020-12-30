@@ -132,6 +132,22 @@ namespace GoFishConsoleApp
             
 
         }
+        static public string CoinFlip()
+        {
+            int flip = random.Next(0, 2);
+            if (flip == 0)
+            {
+                return "player turn";
+            }
+            else if (flip == 1)
+            {
+                return "computer turn";
+            }
+            else
+            {
+                return string.Empty;
+            }
+        }
 
         static private void dealCards(int numberOfCards, List<string> player)
         {
