@@ -11,6 +11,37 @@ namespace GoFishConsoleApp
         
         static void Main(string[] args)
         {
+            string turn = CoinFlip();
+            
+
+            switch (turn)
+            {
+
+                case "player turn":
+                    Console.WriteLine("Your turn");
+                    break;
+
+                case "computer turn":
+                    Console.WriteLine("Computer's turn");
+                    break;
+
+                default:
+                    break;
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             //setUp();
 
