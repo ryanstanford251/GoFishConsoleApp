@@ -35,59 +35,59 @@ namespace GoFishConsoleApp
             Console.WriteLine(newGame.yourCards.Count);*/
 
 
-
+            #region Unused Code Ideas
 
             //v1
             //Determine if a book should be closed i.e. a player has collected all four cards in a book
 
 
- /*           foreach (var book in newGame.Books)
-            {
-                    matched = 0;
-                    for (int i = 0; i < newGame.yourCards.Count; i++)
-                    {
-                        if (newGame.yourCards[i].StartsWith(book[0]))
-                        {
-                            matched++;
-                            if (matched == 4)
-                            {
-                                for (int x = 0; x < newGame.yourCards.Count; x++)
-                                {
-                                    string whichCard = newGame.yourCards[x];
-                                    if (newGame.yourCards[x].StartsWith(book[0]))
-                                    {
-                                        book.Add(newGame.yourCards[x]);
-                                        newGame.yourCards.Remove(newGame.yourCards[x]);
-                                        x--;
-                                        matched++;
-                                    }
-                                    if (matched == 8)
-                                    {
-                                        break;
-                                    }
-                                }
-                            }
-                            if (matched == 8)
-                            {
-                                break;
-                            }
-                        }
-                    }
-                if (matched == 8)
-                {
-                    break;
-                }
-            }
-*/
+            /*           foreach (var book in newGame.Books)
+                       {
+                               matched = 0;
+                               for (int i = 0; i < newGame.yourCards.Count; i++)
+                               {
+                                   if (newGame.yourCards[i].StartsWith(book[0]))
+                                   {
+                                       matched++;
+                                       if (matched == 4)
+                                       {
+                                           for (int x = 0; x < newGame.yourCards.Count; x++)
+                                           {
+                                               string whichCard = newGame.yourCards[x];
+                                               if (newGame.yourCards[x].StartsWith(book[0]))
+                                               {
+                                                   book.Add(newGame.yourCards[x]);
+                                                   newGame.yourCards.Remove(newGame.yourCards[x]);
+                                                   x--;
+                                                   matched++;
+                                               }
+                                               if (matched == 8)
+                                               {
+                                                   break;
+                                               }
+                                           }
+                                       }
+                                       if (matched == 8)
+                                       {
+                                           break;
+                                       }
+                                   }
+                               }
+                           if (matched == 8)
+                           {
+                               break;
+                           }
+                       }
+           */
 
 
             //write content of a list of lists with a for loop
 
-/*            for (int i = 0; i < newGame.Books.Count; i++)
-            {
-                var book = newGame.Books[i];
-                Console.WriteLine(book[0]);
-            }*/
+            /*            for (int i = 0; i < newGame.Books.Count; i++)
+                        {
+                            var book = newGame.Books[i];
+                            Console.WriteLine(book[0]);
+                        }*/
 
 
 
@@ -122,6 +122,7 @@ namespace GoFishConsoleApp
                 }
             }*/
 
+            #endregion
 
             //Test
             //Console.WriteLine($"Books Ace count: {Ace.Count}");
