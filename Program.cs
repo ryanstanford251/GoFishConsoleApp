@@ -14,20 +14,37 @@ namespace GoFishConsoleApp
             string turn = CoinFlip();
             
 
-            switch (turn)
+            do
             {
+                switch (turn)
+                {
 
-                case "player turn":
-                    Console.WriteLine("Your turn");
-                    break;
+                    case "player turn":
+                        Console.WriteLine("Your turn");
+                        Console.Write("Press Enter to continue.");
+                        Console.ReadLine();
+                        Console.Clear();
+                        Console.WriteLine("Your cards: \n");
+                        ShowHand(yourCards);
+                        Console.Write("\n\n\nPick a card: ");
+                        if (guess(computerCards, yourCards))
+                        {
+                            turn = "player turn";
+                        }
+                        else
+                        {
+                            turn = "computer turn";
+                        }
+                        break;
 
-                case "computer turn":
-                    Console.WriteLine("Computer's turn");
-                    break;
+                    case "computer turn":
+                        Console.WriteLine("Computer's turn");
+                        break;
 
-                default:
-                    break;
-            }
+                    default:
+                        break;
+                }
+            } while (true);
 
 
 
@@ -213,25 +230,23 @@ namespace GoFishConsoleApp
         static bool guess(List<string> player, List<string> guessingPlayer)
         {
             string cardGuessed = Console.ReadLine().ToLower();
-            if (true)
+            
+            foreach (var book in Books)
             {
-                foreach (var book in Books)
+                if (cardGuessed == book[0].ToLower())
                 {
-                    if (cardGuessed == book[0].ToLower())
+                    for (int i = 0; i < player.Count; i++)
                     {
-                        for (int i = 0; i < player.Count; i++)
+                        if (player[i].ToLower().StartsWith(cardGuessed))
                         {
-                            if (player[i].ToLower().StartsWith(cardGuessed))
-                            {
-                                guessingPlayer.Add(player[i]);
-                                player.RemoveAt(i);
-                                i--;
-                                return true;
-                            }
+                            guessingPlayer.Add(player[i]);
+                            player.RemoveAt(i);
+                            i--;
+                            return true;
                         }
                     }
                 }
-            }
+            }           
             return false;
         }
 
