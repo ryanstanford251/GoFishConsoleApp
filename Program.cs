@@ -210,6 +210,31 @@ namespace GoFishConsoleApp
             }
         }
 
+        static bool guess(List<string> player, List<string> guessingPlayer)
+        {
+            string cardGuessed = Console.ReadLine().ToLower();
+            if (true)
+            {
+                foreach (var book in Books)
+                {
+                    if (cardGuessed == book[0].ToLower())
+                    {
+                        for (int i = 0; i < player.Count; i++)
+                        {
+                            if (player[i].ToLower().StartsWith(cardGuessed))
+                            {
+                                guessingPlayer.Add(player[i]);
+                                player.RemoveAt(i);
+                                i--;
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+
         
 
 
