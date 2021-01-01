@@ -11,8 +11,8 @@ namespace GoFishConsoleApp
         
         static void Main(string[] args)
         {
-            string turn = CoinFlip();
-            
+            //string turn = CoinFlip();
+            string turn = "player turn";
 
             do
             {
@@ -33,12 +33,22 @@ namespace GoFishConsoleApp
                         }
                         else
                         {
+                            Console.WriteLine("Go Fish");
                             turn = "computer turn";
                         }
                         break;
 
                     case "computer turn":
                         Console.WriteLine("Computer's turn");
+                        if (guess(yourCards, computerCards))
+                        {
+                            turn = "computer turn";
+                        }
+                        else
+                        {
+                            Console.WriteLine("Your turn");
+                            turn = "player turn";
+                        }
                         break;
 
                     default:
@@ -230,6 +240,7 @@ namespace GoFishConsoleApp
         static bool guess(List<string> player, List<string> guessingPlayer)
         {
             string cardGuessed = Console.ReadLine().ToLower();
+            bool isSuccessful = false;
             
             foreach (var book in Books)
             {
@@ -242,12 +253,19 @@ namespace GoFishConsoleApp
                             guessingPlayer.Add(player[i]);
                             player.RemoveAt(i);
                             i--;
-                            return true;
+                            isSuccessful = true;        
                         }
                     }
                 }
-            }           
-            return false;
+            }
+            if (isSuccessful)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         
