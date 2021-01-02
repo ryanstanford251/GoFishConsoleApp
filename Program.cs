@@ -39,7 +39,8 @@ namespace GoFishConsoleApp
                         }
                         yourPoints += applyPoints(yourCards, yourPoints);
 
-                        Console.WriteLine($"You have {yourPoints} points.");
+                        displayPoints(yourPoints, "Player");
+                        displayPoints(computerPoints, "Computer");
                         break;
 
                     case "computer turn":
@@ -53,6 +54,9 @@ namespace GoFishConsoleApp
                             Console.WriteLine("Your turn");
                             turn = "player turn";
                         }
+                        computerPoints += applyPoints(computerCards, computerPoints);
+                        displayPoints(yourPoints, "Player");
+                        displayPoints(computerPoints, "Computer");
                         break;
 
                     default:
