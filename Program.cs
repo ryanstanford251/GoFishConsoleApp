@@ -57,40 +57,7 @@ namespace GoFishConsoleApp
             } while (true);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            //setUp();
-
-            applyPoints();
-            Console.WriteLine(points);
-
-
-            /*Console.WriteLine("Player1 Cards:\n");
-            newGame.ShowHand(newGame.yourCards);
-            Console.WriteLine("\n\nPlayer2 Cards:\n");
-            newGame.ShowHand(newGame.computerCards);
-
-            Console.WriteLine("\n\n\ndeckOfCards count");
-            Console.WriteLine(newGame.deckOfCards.Count);
-
-            newGame.DrawCard(newGame.yourCards);
-
-            Console.WriteLine("\n\n\ndeckOfCards count");
-            Console.WriteLine(newGame.deckOfCards.Count);
-
-            Console.WriteLine("\n\n\nyourCards count");
-            Console.WriteLine(newGame.yourCards.Count);*/
+            
 
 
             #region Unused Code Ideas
