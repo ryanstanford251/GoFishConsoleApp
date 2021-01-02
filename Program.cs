@@ -7,7 +7,8 @@ namespace GoFishConsoleApp
     class Program
     {
         static int matched = 0;
-        static int points = 0;
+        static int playerPoints = 0;
+        static int computerPoints = 0;
         
         static void Main(string[] args)
         {
@@ -36,6 +37,8 @@ namespace GoFishConsoleApp
                             Console.WriteLine("Go Fish");
                             turn = "computer turn";
                         }
+                        applyPoints(yourCards, playerPoints);
+                        Console.WriteLine($"You have {playerPoints} points.");
                         break;
 
                     case "computer turn":
@@ -161,25 +164,25 @@ namespace GoFishConsoleApp
 
 
 
-        static bool checkForPoints()
+        static bool checkForPoints(List<string> player)
         {
             foreach (var book in Books)
             {
                 matched = 0;
-                for (int i = 0; i < yourCards.Count; i++)
+                for (int i = 0; i < player.Count; i++)
                 {
-                    if (yourCards[i].StartsWith(book[0]))
+                    if (player[i].StartsWith(book[0]))
                     {
                         matched++;
 
                         if (matched == 4)
                         {
-                            for (int x = 0; x < yourCards.Count; x++)
+                            for (int x = 0; x < player.Count; x++)
                             {
-                                if (yourCards[x].StartsWith(book[0]))
+                                if (player[x].StartsWith(book[0]))
                                 {
-                                    book.Add(yourCards[x]);
-                                    yourCards.Remove(yourCards[x]);
+                                    book.Add(player[x]);
+                                    player.Remove(player[x]);
                                     x--;
                                 }
                             }
@@ -192,9 +195,9 @@ namespace GoFishConsoleApp
             return false;
         }
 
-        static int applyPoints()
+        static int applyPoints(List<string> player, int points)
         {
-            if (checkForPoints() == true)
+            if (checkForPoints(player) == true)
             {
                 return points += 1;
             }
