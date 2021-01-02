@@ -7,7 +7,7 @@ namespace GoFishConsoleApp
     class Program
     {
         static int matched = 0;
-        static int playerPoints = 0;
+        static int yourPoints = 0;
         static int computerPoints = 0;
         
         static void Main(string[] args)
@@ -37,8 +37,9 @@ namespace GoFishConsoleApp
                             Console.WriteLine("Go Fish");
                             turn = "computer turn";
                         }
-                        applyPoints(yourCards, playerPoints);
-                        Console.WriteLine($"You have {playerPoints} points.");
+                        yourPoints += applyPoints(yourCards, yourPoints);
+
+                        Console.WriteLine($"You have {yourPoints} points.");
                         break;
 
                     case "computer turn":
@@ -235,6 +236,19 @@ namespace GoFishConsoleApp
             else
             {
                 return false;
+            }
+        }
+
+
+        static void displayPoints(int points, string player)
+        {
+            if (points == 1)
+            {
+                Console.WriteLine($"{player} has {points} point.");
+            }
+            else
+            {
+                Console.WriteLine($"{player} has {points} points.");
             }
         }
 
