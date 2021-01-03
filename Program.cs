@@ -45,7 +45,7 @@ namespace GoFishConsoleApp
 
                     case "computer turn":
                         Console.WriteLine("Computer's turn");
-                        if (guess(yourCards, computerCards))
+                        if (computerGuess())
                         {
                             turn = "computer turn";
                         }
@@ -155,7 +155,6 @@ namespace GoFishConsoleApp
                 }
             }*/
 
-            #endregion
 
             //Test
             //Console.WriteLine($"Books Ace count: {Ace.Count}");
@@ -166,6 +165,7 @@ namespace GoFishConsoleApp
             }
         }
 
+            #endregion
 
 
 
@@ -191,7 +191,7 @@ namespace GoFishConsoleApp
                                     x--;
                                 }
                             }
-                            Console.WriteLine($"{book[0]} book is closed");
+                            Console.WriteLine($"{book} book is closed");
                             return true;
                         } 
                     }
@@ -231,6 +231,33 @@ namespace GoFishConsoleApp
                             isSuccessful = true;        
                         }
                     }
+                }
+            }
+            if (isSuccessful)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+        static bool computerGuess()
+        {
+            bool isSuccessful = false;
+            Random random = new Random();
+            int randomCard = random.Next(0, computerCards.Count);
+            string[] pickedCard = computerCards[randomCard].Split(" ");
+            for (int i = 0; i < yourCards.Count; i++)
+            {
+                if (yourCards[i].StartsWith(pickedCard[0]))
+                {
+                    isSuccessful = true;
+                    computerCards.Add(yourCards[i]);
+                    yourCards.RemoveAt(i);
+                    i--;
                 }
             }
             if (isSuccessful)
