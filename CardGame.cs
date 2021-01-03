@@ -96,19 +96,7 @@ namespace GoFishConsoleApp
             deckOfCards.Add("King of Clubs");
             deckOfCards.Add("King of Spades");
 
-            List<string> Ace = new List<string>();
-            List<string> Two = new List<string>();
-            List<string> Three = new List<string>();
-            List<string> Four = new List<string>();
-            List<string> Five = new List<string>();
-            List<string> Six = new List<string>();
-            List<string> Seven = new List<string>();
-            List<string> Eight = new List<string>();
-            List<string> Nine = new List<string>();
-            List<string> Ten = new List<string>();
-            List<string> Jack = new List<string>();
-            List<string> Queen = new List<string>();
-            List<string> King = new List<string>();
+           
 
             Books.Add("Ace");
             Books.Add("Two");
