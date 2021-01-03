@@ -31,7 +31,15 @@ namespace GoFishConsoleApp
             yourCards.Add("Ace of Spades");
             yourCards.Add("Jack of Diamonds");
             yourCards.Add("Ace of Diamonds");
-            yourCards.Add("Ace of Clubs");    
+            yourCards.Add("Ace of Clubs");
+
+            computerCards.Add("Two of Diamonds");
+            computerCards.Add("King of Spades");
+            computerCards.Add("Queen of Diamons");
+            computerCards.Add("Two of Spades");
+            computerCards.Add("Five of Clubs");
+            computerCards.Add("Seven of Hearts");
+            computerCards.Add("Four of clubs");
         }
         static public void setUp()
         {
