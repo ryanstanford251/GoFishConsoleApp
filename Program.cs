@@ -186,7 +186,7 @@ namespace GoFishConsoleApp
                             {
                                 if (player[x].StartsWith(book[0]))
                                 {
-                                    book.Add(player[x]);
+                                    Books.Add(player[x]);
                                     player.Remove(player[x]);
                                     x--;
                                 }
@@ -219,7 +219,7 @@ namespace GoFishConsoleApp
             
             foreach (var book in Books)
             {
-                if (cardGuessed == book[0].ToLower())
+                if (cardGuessed == book.ToLower())
                 {
                     for (int i = 0; i < player.Count; i++)
                     {
