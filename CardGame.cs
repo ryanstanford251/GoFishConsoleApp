@@ -10,7 +10,7 @@ namespace GoFishConsoleApp
         static public List<string> deckOfCards = new List<string>();
         static public List<string> yourCards { get; private set; } = new List<string>();
         static public List<string> computerCards { get; private set; } = new List<string>();
-        static public List<List<string>> Books = new List<List<string>>();
+        static public List<string> Books = new List<string>();
 
         static Random random = new Random();
         
@@ -110,33 +110,21 @@ namespace GoFishConsoleApp
             List<string> Queen = new List<string>();
             List<string> King = new List<string>();
 
-            Ace.Add("Ace");
-            Two.Add("Two");
-            Three.Add("Three");
-            Four.Add("Four");
-            Five.Add("Five");
-            Six.Add("Six");
-            Seven.Add("Seven");
-            Eight.Add("Eight");
-            Nine.Add("Nine");
-            Ten.Add("Ten");
-            Jack.Add("Jack");
-            Queen.Add("Queen");
-            King.Add("King");
+            Books.Add("Ace");
+            Books.Add("Two");
+            Books.Add("Three");
+            Books.Add("Four");
+            Books.Add("Five");
+            Books.Add("Six");
+            Books.Add("Seven");
+            Books.Add("Eight");
+            Books.Add("Nine");
+            Books.Add("Ten");
+            Books.Add("Jack");
+            Books.Add("Queen");
+            Books.Add("King");
 
-            Books.Add(Ace);
-            Books.Add(Two);
-            Books.Add(Three);
-            Books.Add(Four);
-            Books.Add(Five);
-            Books.Add(Six);
-            Books.Add(Seven);
-            Books.Add(Eight);
-            Books.Add(Nine);
-            Books.Add(Ten);
-            Books.Add(Jack);
-            Books.Add(Queen);
-            Books.Add(King);
+
             
 
         }
