@@ -212,34 +212,50 @@ namespace GoFishConsoleApp
             }
         }
 
-        static bool guess(List<string> player, List<string> guessingPlayer)
+        static string validateGuess()
         {
-            bool isSuccessful = false;
             bool cardInHand = false;
 
             while (!cardInHand)
             {
                 string cardGuessed = Console.ReadLine().ToLower();
+                Console.WriteLine();
 
-                foreach (var book in Books)
+                foreach (var card in yourCards)
                 {
-                    if (cardGuessed == book.ToLower())
+                    if (card.ToLower().StartsWith(cardGuessed))
                     {
                         cardInHand = true;
-
-                        for (int i = 0; i < player.Count; i++)
-                        {
-                            if (player[i].ToLower().StartsWith(cardGuessed))
-                            {
-                                guessingPlayer.Add(player[i]);
-                                player.RemoveAt(i);
-                                i--;
-                                isSuccessful = true;        
-                            }
-                        }
+                        return cardGuessed;
                     }
+                    
+                    
+                    
+                }
+
+                Console.Write("Card not in hand. \nPick another card: ");
+            }
+            return null;
+
+
+        }
+
+        static bool guess(List<string> player, List<string> guessingPlayer)
+        {
+            bool isSuccessful = false;
+
+
+            for (int i = 0; i < player.Count; i++)
+            {
+                if (player[i].ToLower().StartsWith(validateGuess()))
+                {
+                    guessingPlayer.Add(player[i]);
+                    player.RemoveAt(i);
+                    i--;
+                    isSuccessful = true;        
                 }
             }
+
             if (isSuccessful)
             {
                 return true;
