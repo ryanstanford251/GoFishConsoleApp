@@ -6,9 +6,9 @@ namespace GoFishConsoleApp
 {
     class Program
     {
-        static int matched = 0;
         static int yourPoints = 0;
         static int computerPoints = 0;
+
         
         static void Main(string[] args)
         {
@@ -173,10 +173,10 @@ namespace GoFishConsoleApp
         {
             foreach (var book in Books)
             {
-                matched = 0;
+                int matched = 0;
                 for (int i = 0; i < player.Count; i++)
                 {
-                    if (player[i].StartsWith(book[0]))
+                    if (player[i].StartsWith(book))
                     {
                         matched++;
 
@@ -184,9 +184,10 @@ namespace GoFishConsoleApp
                         {
                             for (int x = 0; x < player.Count; x++)
                             {
-                                if (player[x].StartsWith(book[0]))
+                                if (player[x].StartsWith(book))
                                 {
-                                    Books.Add(player[x]);
+                                    //Books.Add(player[x]);
+                                    Books.Remove(book);
                                     player.Remove(player[x]);
                                     x--;
                                 }
@@ -227,10 +228,7 @@ namespace GoFishConsoleApp
                     {
                         cardInHand = true;
                         return cardGuessed;
-                    }
-                    
-                    
-                    
+                    }   
                 }
 
                 Console.Write("Card not in hand. \nPick another card: ");
@@ -243,11 +241,11 @@ namespace GoFishConsoleApp
         static bool guess(List<string> player, List<string> guessingPlayer)
         {
             bool isSuccessful = false;
-
+            string cardGuessed = validateGuess();
 
             for (int i = 0; i < player.Count; i++)
             {
-                if (player[i].ToLower().StartsWith(validateGuess()))
+                if (player[i].ToLower().StartsWith(cardGuessed))
                 {
                     guessingPlayer.Add(player[i]);
                     player.RemoveAt(i);
