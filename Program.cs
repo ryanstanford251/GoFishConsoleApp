@@ -35,6 +35,7 @@ namespace GoFishConsoleApp
                         else
                         {
                             Console.WriteLine("Go Fish");
+                            DrawCard(yourCards);
                             turn = "computer turn";
                         }
                         yourPoints += applyPoints(yourCards, yourPoints);
@@ -52,6 +53,7 @@ namespace GoFishConsoleApp
                         else
                         {
                             Console.WriteLine("Your turn");
+                            DrawCard(computerCards);
                             turn = "player turn";
                         }
                         computerPoints += applyPoints(computerCards, computerPoints);
