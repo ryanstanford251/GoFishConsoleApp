@@ -31,6 +31,8 @@ namespace GoFishConsoleApp
                         if (guess(computerCards, yourCards))
                         {
                             Console.WriteLine("Good guess");
+                            Console.ReadLine();
+                            Console.Clear();
                             turn = "player turn";
                         }
                         else
@@ -55,6 +57,8 @@ namespace GoFishConsoleApp
                         if (computerGuess())
                         {
                             turn = "computer turn";
+                            Console.ReadLine();
+                            Console.Clear();
                         }
                         else
                         {
@@ -259,6 +263,7 @@ namespace GoFishConsoleApp
             {
                 if (player[i].ToLower().StartsWith(cardGuessed))
                 {
+                    Console.WriteLine($"Card added: {player[i]}");
                     guessingPlayer.Add(player[i]);
                     player.RemoveAt(i);
                     i--;
