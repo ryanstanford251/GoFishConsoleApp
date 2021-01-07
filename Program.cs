@@ -30,18 +30,24 @@ namespace GoFishConsoleApp
                         Console.Write("\n\n\nPick a card: ");
                         if (guess(computerCards, yourCards))
                         {
+                            Console.WriteLine("Good guess");
                             turn = "player turn";
                         }
                         else
                         {
                             Console.WriteLine("Go Fish");
                             DrawCard(yourCards);
+                            showCardDrawn();
                             turn = "computer turn";
+                            Console.ReadLine();
+                            Console.Clear();
                         }
                         yourPoints += applyPoints(yourCards, yourPoints);
 
                         displayPoints(yourPoints, "Player");
                         displayPoints(computerPoints, "Computer");
+                        Console.ReadLine();
+                        Console.Clear();
                         break;
 
                     case "computer turn":
@@ -52,13 +58,17 @@ namespace GoFishConsoleApp
                         }
                         else
                         {
-                            Console.WriteLine("Your turn");
+                            Console.WriteLine("Computer guessed incorrectly. \n");
+                            Console.ReadLine();
+                            Console.Clear();
                             DrawCard(computerCards);
                             turn = "player turn";
                         }
                         computerPoints += applyPoints(computerCards, computerPoints);
                         displayPoints(yourPoints, "Player");
                         displayPoints(computerPoints, "Computer");
+                        Console.ReadLine();
+                        Console.Clear();
                         break;
 
                     default:
@@ -304,6 +314,12 @@ namespace GoFishConsoleApp
             {
                 Console.WriteLine($"{player} has {points} points.");
             }
+        }
+
+        static void showCardDrawn()
+        {
+            int cardCount = yourCards.Count;
+            Console.WriteLine($"You drew a: {yourCards[cardCount - 1]}");
         }
 
         
