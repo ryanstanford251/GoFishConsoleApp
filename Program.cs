@@ -54,8 +54,15 @@ namespace GoFishConsoleApp
 
                     case "computer turn":
                         Console.WriteLine("Computer's turn");
+
+                        //test
+                        Console.WriteLine("Computer Cards");
+                        ShowHand(computerCards);
+
+
                         if (computerGuess())
                         {
+                            Console.WriteLine("Computer guess successful");
                             turn = "computer turn";
                             Console.ReadLine();
                             Console.Clear();
@@ -288,6 +295,9 @@ namespace GoFishConsoleApp
             Random random = new Random();
             int randomCard = random.Next(0, computerCards.Count);
             string[] pickedCard = computerCards[randomCard].Split(" ");
+
+            Console.WriteLine($"computer guess: {pickedCard[0]}");
+
             for (int i = 0; i < yourCards.Count; i++)
             {
                 if (yourCards[i].StartsWith(pickedCard[0]))
