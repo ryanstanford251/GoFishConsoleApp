@@ -172,5 +172,17 @@ namespace GoFishConsoleApp
 
         }
 
+        static void playAgain()
+        {
+            if (true)
+            {
+                setUp();
+            }
+            else
+            {
+
+            }
+        }
+
     }
 }
