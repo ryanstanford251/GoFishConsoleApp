@@ -25,8 +25,15 @@ namespace GoFishConsoleApp
                         Console.Write("Press Enter to continue.");
                         Console.ReadLine();
                         Console.Clear();
-                        Console.WriteLine("Your cards: \n");
-                        ShowHand(yourCards);
+                        if (yourCards.Count > 0)
+                        {
+                            Console.WriteLine("Your cards: \n");
+                        }
+                        else
+                        {
+                            DrawCard(yourCards);
+                        }
+                            ShowHand(yourCards);
                         Console.Write("\n\n\nPick a card: ");
                         if (guess(computerCards, yourCards))
                         {
@@ -54,7 +61,10 @@ namespace GoFishConsoleApp
 
                     case "computer turn":
                         Console.WriteLine("Computer's turn");
-
+                        if (computerCards.Count < 1)
+                        {
+                            DrawCard(computerCards);
+                        }
                         //test
                         Console.WriteLine("Computer Cards");
                         ShowHand(computerCards);
