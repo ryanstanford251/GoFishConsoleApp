@@ -172,15 +172,17 @@ namespace GoFishConsoleApp
 
         }
 
-        static void playAgain()
+        static void playAgain(string answer)
         {
-            if (true)
+            Console.WriteLine("Enter yes to play again or press any key to exit game.");
+            answer = Console.ReadLine();
+            if (answer.ToLower() == "yes") 
             {
                 setUp();
             }
             else
             {
-
+                Console.WriteLine("Thanks for playing!");
             }
         }
 
