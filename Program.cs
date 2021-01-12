@@ -98,7 +98,7 @@ namespace GoFishConsoleApp
             } while (deckOfCards.Count > 0 && yourCards.Count > 0 && computerCards.Count > 0);
 
 
-            
+            playAgain();
 
 
             #region Unused Code Ideas
