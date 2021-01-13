@@ -95,7 +95,7 @@ namespace GoFishConsoleApp
                     default:
                         break;
                 }
-            } while (deckOfCards.Count > 0 && yourCards.Count > 0 && computerCards.Count > 0);
+            } while (deckOfCards.Count > 0 || yourCards.Count > 0 || computerCards.Count > 0);
 
             chooseWinner();
             playAgain();
