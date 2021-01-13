@@ -347,6 +347,18 @@ namespace GoFishConsoleApp
             Console.WriteLine($"You drew a: {yourCards[cardCount - 1]}");
         }
 
+        static void chooseWinner()
+        {
+            if (yourPoints > computerPoints)
+            {
+                Console.WriteLine("YOU WIN!!!");
+            }
+            else
+            {
+                Console.WriteLine("You Lose...");
+            }
+        }
+
         
 
 
