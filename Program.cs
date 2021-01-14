@@ -55,6 +55,8 @@ namespace GoFishConsoleApp
 
                         displayPoints(yourPoints, "Player");
                         displayPoints(computerPoints, "Computer");
+                        Console.WriteLine("\n\nClosed Books:");
+                        showClosedBooks();
                         Console.ReadLine();
                         Console.Clear();
                         break;
@@ -88,6 +90,8 @@ namespace GoFishConsoleApp
                         computerPoints += applyPoints(computerCards, computerPoints);
                         displayPoints(yourPoints, "Player");
                         displayPoints(computerPoints, "Computer");
+                        Console.WriteLine("\n\nClosed Books:");
+                        showClosedBooks();
                         Console.ReadLine();
                         Console.Clear();
                         break;
@@ -220,12 +224,13 @@ namespace GoFishConsoleApp
                                 if (player[x].StartsWith(book))
                                 {
                                     //Books.Add(player[x]);
-                                    Books.Remove(book);
                                     player.Remove(player[x]);
                                     x--;
                                 }
                             }
-                            Console.WriteLine($"{book} book is closed");
+                            //Console.WriteLine($"{book} book is closed \n\n");
+                            Books.Remove(book);
+                            closedBooks.Add(book);
                             return true;
                         } 
                     }
@@ -356,6 +361,14 @@ namespace GoFishConsoleApp
             else
             {
                 Console.WriteLine("You Lose...");
+            }
+        }
+
+        static void showClosedBooks()
+        {
+            foreach (var book in closedBooks)
+            {
+                Console.WriteLine(book);
             }
         }
 
