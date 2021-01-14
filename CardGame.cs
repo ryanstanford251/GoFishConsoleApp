@@ -11,6 +11,7 @@ namespace GoFishConsoleApp
         static public List<string> yourCards { get; private set; } = new List<string>();
         static public List<string> computerCards { get; private set; } = new List<string>();
         static public List<string> Books = new List<string>();
+        static public List<string> closedBooks = new List<string>();
 
         static Random random = new Random();
         
