@@ -146,6 +146,7 @@ namespace GoFishConsoleApp
 
         static public void ShowHand(List<string> player)
         {
+            player.Sort();
             foreach (var card in player)
             {
                 Console.WriteLine(card);
