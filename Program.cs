@@ -366,6 +366,7 @@ namespace GoFishConsoleApp
 
         static void showClosedBooks()
         {
+            closedBooks.Sort();
             foreach (var book in closedBooks)
             {
                 Console.WriteLine(book);
