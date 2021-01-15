@@ -29,27 +29,34 @@ namespace GoFishConsoleApp
                         {
                             Console.WriteLine("Your cards: \n");
                         }
-                        else
+                        if (yourCards.Count == 0 && deckOfCards.Count == 0)
+                        {
+                            break;
+                        }
+                        else if (yourCards.Count == 0)
                         {
                             DrawCard(yourCards);
                         }
+                        else
+                        {
                             ShowHand(yourCards);
-                        Console.Write("\n\n\nPick a card: ");
-                        if (guess(computerCards, yourCards))
-                        {
-                            Console.WriteLine("Good guess");
-                            Console.ReadLine();
-                            Console.Clear();
-                            turn = "player turn";
-                        }
-                        else
-                        {
-                            Console.WriteLine("Go Fish");
-                            DrawCard(yourCards);
-                            showCardDrawn();
-                            turn = "computer turn";
-                            Console.ReadLine();
-                            Console.Clear();
+                            Console.Write("\n\n\nPick a card: ");
+                            if (guess(computerCards, yourCards))
+                            {
+                                Console.WriteLine("Good guess");
+                                Console.ReadLine();
+                                Console.Clear();
+                                turn = "player turn";
+                            }
+                            else
+                            {
+                                Console.WriteLine("Go Fish");
+                                DrawCard(yourCards);
+                                showCardDrawn();
+                                turn = "computer turn";
+                                Console.ReadLine();
+                                Console.Clear();
+                            }
                         }
                         yourPoints += applyPoints(yourCards, yourPoints);
 
@@ -63,29 +70,36 @@ namespace GoFishConsoleApp
 
                     case "computer turn":
                         Console.WriteLine("Computer's turn");
-                        if (computerCards.Count < 1)
+                        if (computerCards.Count == 0 && deckOfCards.Count == 0)
+                        {
+                            break;
+                        }
+                        else if (computerCards.Count == 0)
                         {
                             DrawCard(computerCards);
-                        }
-                        //test
-                        Console.WriteLine("Computer Cards");
-                        ShowHand(computerCards);
-
-
-                        if (computerGuess())
-                        {
-                            Console.WriteLine("Computer guess successful");
-                            turn = "computer turn";
-                            Console.ReadLine();
-                            Console.Clear();
                         }
                         else
                         {
-                            Console.WriteLine("Computer guessed incorrectly. \n");
-                            Console.ReadLine();
-                            Console.Clear();
-                            DrawCard(computerCards);
-                            turn = "player turn";
+                            //test
+                            Console.WriteLine("Computer Cards");
+                            ShowHand(computerCards);
+
+
+                            if (computerGuess())
+                            {
+                                Console.WriteLine("Computer guess successful");
+                                turn = "computer turn";
+                                Console.ReadLine();
+                                Console.Clear();
+                            }
+                            else
+                            {
+                                Console.WriteLine("Computer guessed incorrectly. \n");
+                                Console.ReadLine();
+                                Console.Clear();
+                                DrawCard(computerCards);
+                                turn = "player turn";
+                            }
                         }
                         computerPoints += applyPoints(computerCards, computerPoints);
                         displayPoints(yourPoints, "Player");
