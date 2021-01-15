@@ -31,6 +31,7 @@ namespace GoFishConsoleApp
                         }
                         if (yourCards.Count == 0 && deckOfCards.Count == 0)
                         {
+                            turn = "computer turn";
                             break;
                         }
                         else if (yourCards.Count == 0)
@@ -72,6 +73,7 @@ namespace GoFishConsoleApp
                         Console.WriteLine("Computer's turn");
                         if (computerCards.Count == 0 && deckOfCards.Count == 0)
                         {
+                            turn = "player turn";
                             break;
                         }
                         else if (computerCards.Count == 0)
