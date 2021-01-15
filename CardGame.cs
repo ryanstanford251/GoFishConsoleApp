@@ -22,8 +22,8 @@ namespace GoFishConsoleApp
         static CardGame()
         {
             setUp();
-            //dealCards(7, yourCards);
-            //dealCards(7, computerCards);
+            /*dealCards(7, yourCards);
+            dealCards(7, computerCards);*/
 
             //test
             yourCards.Add("Two of Hearts");
@@ -156,10 +156,17 @@ namespace GoFishConsoleApp
 
         static public void DrawCard(List<string> player)
         {
-            int index = random.Next(1, deckOfCards.Count);
-            string cardDrawn = deckOfCards[index];
-            player.Add(cardDrawn);
-            deckOfCards.Remove(cardDrawn);
+            try
+            {
+                int index = random.Next(1, deckOfCards.Count);
+                string cardDrawn = deckOfCards[index];
+                player.Add(cardDrawn);
+                deckOfCards.Remove(cardDrawn);
+            }
+            catch (System.ArgumentOutOfRangeException)
+            {
+                Console.WriteLine("No more cards in deck");
+            }
         }
 
         static public void DrawCard(List<string> player, int numberOfCards)
