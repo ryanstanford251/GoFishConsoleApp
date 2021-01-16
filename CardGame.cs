@@ -22,25 +22,25 @@ namespace GoFishConsoleApp
         static CardGame()
         {
             setUp();
-            /*dealCards(7, yourCards);
-            dealCards(7, computerCards);*/
+            dealCards(7, yourCards);
+            dealCards(7, computerCards);
 
             //test
-            yourCards.Add("Two of Hearts");
-            yourCards.Add("Ace of Hearts");
-            yourCards.Add("Three of Clubs");
-            yourCards.Add("Ace of Spades");
-            yourCards.Add("Jack of Diamonds");
-            yourCards.Add("Ace of Diamonds");
-            yourCards.Add("Ace of Clubs");
+            //yourCards.Add("Two of Hearts");
+            //yourCards.Add("Ace of Hearts");
+            //yourCards.Add("Three of Clubs");
+            //yourCards.Add("Ace of Spades");
+            //yourCards.Add("Jack of Diamonds");
+            //yourCards.Add("Ace of Diamonds");
+            //yourCards.Add("Ace of Clubs");
 
-            computerCards.Add("Two of Diamonds");
-            computerCards.Add("King of Spades");
-            computerCards.Add("Queen of Diamonds");
-            computerCards.Add("Two of Spades");
-            computerCards.Add("Five of Clubs");
-            computerCards.Add("Seven of Hearts");
-            computerCards.Add("Two of Clubs");
+            //computerCards.Add("Two of Diamonds");
+            //computerCards.Add("King of Spades");
+            //computerCards.Add("Queen of Diamonds");
+            //computerCards.Add("Two of Spades");
+            //computerCards.Add("Five of Clubs");
+            //computerCards.Add("Seven of Hearts");
+            //computerCards.Add("Two of Clubs");
         }
         static public void setUp()
         {
@@ -138,7 +138,7 @@ namespace GoFishConsoleApp
         {
             for (int i = 0; i < numberOfCards; i++)
             {
-                int cardIndex = random.Next(1, deckOfCards.Count);
+                int cardIndex = random.Next(0, deckOfCards.Count);
                 player.Add(deckOfCards[cardIndex]);
                 deckOfCards.Remove(deckOfCards[cardIndex]);
                 
@@ -158,7 +158,7 @@ namespace GoFishConsoleApp
         {
             try
             {
-                int index = random.Next(1, deckOfCards.Count);
+                int index = random.Next(0, deckOfCards.Count);
                 string cardDrawn = deckOfCards[index];
                 player.Add(cardDrawn);
                 deckOfCards.Remove(cardDrawn);
@@ -173,7 +173,7 @@ namespace GoFishConsoleApp
         {
             for (int i = 0; i < numberOfCards; i++)
             {
-                int index = random.Next(1, deckOfCards.Count);
+                int index = random.Next(0, deckOfCards.Count);
                 string cardDrawn = deckOfCards[index];
                 player.Add(cardDrawn);
                 deckOfCards.Remove(cardDrawn);
