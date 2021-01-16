@@ -59,7 +59,7 @@ namespace GoFishConsoleApp
                                 Console.Clear();
                             }
                         }
-                        yourPoints += applyPoints(yourCards, yourPoints);
+                        yourPoints = applyPoints(yourCards, yourPoints);
 
                         displayPoints(yourPoints, "Player");
                         displayPoints(computerPoints, "Computer");
@@ -103,7 +103,7 @@ namespace GoFishConsoleApp
                                 turn = "player turn";
                             }
                         }
-                        computerPoints += applyPoints(computerCards, computerPoints);
+                        computerPoints = applyPoints(computerCards, computerPoints);
                         displayPoints(yourPoints, "Player");
                         displayPoints(computerPoints, "Computer");
                         Console.WriteLine("\n\nClosed Books:");
