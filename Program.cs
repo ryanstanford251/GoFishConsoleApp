@@ -278,7 +278,7 @@ namespace GoFishConsoleApp
 
                 foreach (var card in yourCards)
                 {
-                    if (card.ToLower().StartsWith(cardGuessed))
+                    if (card.ToLower().StartsWith(cardGuessed) && cardGuessed != "")
                     {
                         cardInHand = true;
                         return cardGuessed;
