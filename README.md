@@ -6,3 +6,10 @@ cards already in hand being drawn because of test cards added to hand.
 
 add code to determine when game has ended
 add method to choose winner
+
+
+
+
+
+
+playAgain method does not seem to work
