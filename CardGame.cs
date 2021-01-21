@@ -22,8 +22,6 @@ namespace GoFishConsoleApp
         static CardGame()
         {
             setUp();
-            dealCards(7, yourCards);
-            dealCards(7, computerCards);
 
             //test
             //yourCards.Add("Two of Hearts");
@@ -44,6 +42,9 @@ namespace GoFishConsoleApp
         }
         static public void setUp()
         {
+
+
+
             deckOfCards.Add("Ace of Hearts");
             deckOfCards.Add("Ace of Diamonds");
             deckOfCards.Add("Ace of Clubs");
@@ -114,6 +115,8 @@ namespace GoFishConsoleApp
             Books.Add("King");
 
 
+            dealCards(7, yourCards);
+            dealCards(7, computerCards);
             
 
         }
