@@ -70,7 +70,7 @@ namespace GoFishConsoleApp
                         break;
 
                     case "computer turn":
-                        Console.WriteLine("Computer's turn");
+                        Console.WriteLine("Computer's turn\n");
                         if (computerCards.Count == 0 && deckOfCards.Count == 0)
                         {
                             turn = "player turn";                            
@@ -85,6 +85,7 @@ namespace GoFishConsoleApp
                             //test
                             Console.WriteLine("Computer Cards");
                             ShowHand(computerCards);
+                            Console.WriteLine();
 
 
                             if (computerGuess())
