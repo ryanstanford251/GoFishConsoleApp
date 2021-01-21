@@ -12,117 +12,118 @@ namespace GoFishConsoleApp
         
         static void Main(string[] args)
         {
-            //string turn = CoinFlip();
-            string turn = "player turn";
-
             do
             {
-                switch (turn)
+
+                //string turn = CoinFlip();
+                string turn = "player turn";
+
+                do
                 {
+                    switch (turn)
+                    {
 
-                    case "player turn":
-                        Console.WriteLine("Your turn");
-                        Console.Write("Press Enter to continue.");
-                        Console.ReadLine();
-                        Console.Clear();
-                        if (yourCards.Count > 0)
-                        {
-                            Console.WriteLine("Your cards: \n");
-                        }
-                        if (yourCards.Count == 0 && deckOfCards.Count == 0)
-                        {
-                            turn = "computer turn";                            
-                        }
-                        else if (yourCards.Count == 0)
-                        {
-                            DrawCard(yourCards);
-                            turn = "computer turn";
-                        }
-                        else
-                        {
-                            ShowHand(yourCards);
-                            Console.Write("\n\n\nPick a card: ");
-                            if (guess(computerCards, yourCards))
+                        case "player turn":
+                            Console.WriteLine("Your turn");
+                            Console.Write("Press Enter to continue.");
+                            Console.ReadLine();
+                            Console.Clear();
+                            if (yourCards.Count > 0)
                             {
-                                Console.WriteLine("Good guess");
-                                Console.ReadLine();
-                                Console.Clear();
-                                turn = "player turn";
+                                Console.WriteLine("Your cards: \n");
                             }
-                            else
+                            if (yourCards.Count == 0 && deckOfCards.Count == 0)
                             {
-                                Console.WriteLine("Go Fish");
+                                turn = "computer turn";                            
+                            }
+                            else if (yourCards.Count == 0)
+                            {
                                 DrawCard(yourCards);
-                                showCardDrawn();
                                 turn = "computer turn";
-                                Console.ReadLine();
-                                Console.Clear();
-                            }
-                        }
-
-                        yourPoints = applyPoints(yourCards, yourPoints);
-                        displayPoints(yourPoints, "Player");
-                        displayPoints(computerPoints, "Computer");
-                        Console.WriteLine("\n\nClosed Books:");
-                        showClosedBooks();
-                        Console.ReadLine();
-                        Console.Clear();
-                        break;
-
-                    case "computer turn":
-                        Console.WriteLine("Computer's turn\n");
-                        if (computerCards.Count == 0 && deckOfCards.Count == 0)
-                        {
-                            turn = "player turn";                            
-                        }
-                        else if (computerCards.Count == 0)
-                        {
-                            DrawCard(computerCards);
-                            turn = "player turn";
-                        }
-                        else
-                        {
-                            //test
-                            Console.WriteLine("Computer Cards");
-                            ShowHand(computerCards);
-                            Console.WriteLine();
-
-
-                            if (computerGuess())
-                            {
-                                Console.WriteLine("Computer guess successful");
-                                turn = "computer turn";
-                                Console.ReadLine();
-                                Console.Clear();
                             }
                             else
                             {
-                                Console.WriteLine("Computer guessed incorrectly. \n");
-                                Console.ReadLine();
-                                Console.Clear();
+                                ShowHand(yourCards);
+                                Console.Write("\n\n\nPick a card: ");
+                                if (guess(computerCards, yourCards))
+                                {
+                                    Console.WriteLine("Good guess");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    turn = "player turn";
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Go Fish");
+                                    DrawCard(yourCards);
+                                    showCardDrawn();
+                                    turn = "computer turn";
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                }
+                            }
+
+                            yourPoints = applyPoints(yourCards, yourPoints);
+                            displayPoints(yourPoints, "Player");
+                            displayPoints(computerPoints, "Computer");
+                            Console.WriteLine("\n\nClosed Books:");
+                            showClosedBooks();
+                            Console.ReadLine();
+                            Console.Clear();
+                            break;
+
+                        case "computer turn":
+                            Console.WriteLine("Computer's turn\n");
+                            if (computerCards.Count == 0 && deckOfCards.Count == 0)
+                            {
+                                turn = "player turn";                            
+                            }
+                            else if (computerCards.Count == 0)
+                            {
                                 DrawCard(computerCards);
                                 turn = "player turn";
                             }
-                        }
-                        computerPoints = applyPoints(computerCards, computerPoints);
-                        displayPoints(yourPoints, "Player");
-                        displayPoints(computerPoints, "Computer");
-                        Console.WriteLine("\n\nClosed Books:");
-                        showClosedBooks();
-                        Console.ReadLine();
-                        Console.Clear();
-                        break;
+                            else
+                            {
+                                //test
+                                Console.WriteLine("Computer Cards");
+                                ShowHand(computerCards);
+                                Console.WriteLine();
 
-                    default:
-                        break;
-                }
-            } while (deckOfCards.Count > 0 || yourCards.Count > 0 || computerCards.Count > 0);
 
-            chooseWinner();
-            if (playAgain())
-            {
-                turn = CoinFlip();
-            }
+                                if (computerGuess())
+                                {
+                                    Console.WriteLine("Computer guess successful");
+                                    turn = "computer turn";
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Computer guessed incorrectly. \n");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    DrawCard(computerCards);
+                                    turn = "player turn";
+                                }
+                            }
+                            computerPoints = applyPoints(computerCards, computerPoints);
+                            displayPoints(yourPoints, "Player");
+                            displayPoints(computerPoints, "Computer");
+                            Console.WriteLine("\n\nClosed Books:");
+                            showClosedBooks();
+                            Console.ReadLine();
+                            Console.Clear();
+                            break;
+
+                        default:
+                            break;
+                    }
+                } while (deckOfCards.Count > 0 || yourCards.Count > 0 || computerCards.Count > 0);
+
+                chooseWinner();
+            
+            } while (playAgain());
             
 
 
