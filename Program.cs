@@ -86,7 +86,7 @@ namespace GoFishConsoleApp
                             else
                             {
                                 //test
-                                Console.WriteLine("Computer Cards");
+                                Console.WriteLine("Computer Cards\n");
                                 ShowHand(computerCards);
                                 Console.WriteLine();
 
