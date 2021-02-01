@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 
-namespace GoFishConsoleApp
+namespace Cards
 {
     static class CardGame
     {

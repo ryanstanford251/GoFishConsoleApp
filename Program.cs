@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using static GoFishConsoleApp.CardGame;
+using static Cards.CardGame;
 
 namespace GoFishConsoleApp
 {
