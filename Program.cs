@@ -16,7 +16,13 @@ namespace GoFishConsoleApp
             {
 
                 //string turn = CoinFlip();
+
+                //test code
                 string turn = "player turn";
+                DealCards(7, yourCards);
+                DealCards(7, computerCards);
+
+                
 
                 do
                 {
