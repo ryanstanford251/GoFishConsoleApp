@@ -20,31 +20,7 @@ namespace Cards
 
 
         static CardGame()
-        {
-            setUp();
-
-            //test
-            //yourCards.Add("Two of Hearts");
-            //yourCards.Add("Ace of Hearts");
-            //yourCards.Add("Three of Clubs");
-            //yourCards.Add("Ace of Spades");
-            //yourCards.Add("Jack of Diamonds");
-            //yourCards.Add("Ace of Diamonds");
-            //yourCards.Add("Ace of Clubs");
-
-            //computerCards.Add("Two of Diamonds");
-            //computerCards.Add("King of Spades");
-            //computerCards.Add("Queen of Diamonds");
-            //computerCards.Add("Two of Spades");
-            //computerCards.Add("Five of Clubs");
-            //computerCards.Add("Seven of Hearts");
-            //computerCards.Add("Two of Clubs");
-        }
-        static public void setUp()
-        {
-
-
-
+        {        
             deckOfCards.Add("Ace of Hearts");
             deckOfCards.Add("Ace of Diamonds");
             deckOfCards.Add("Ace of Clubs");
@@ -113,13 +89,10 @@ namespace Cards
             Books.Add("Jack");
             Books.Add("Queen");
             Books.Add("King");
-
-
-            dealCards(7, yourCards);
-            dealCards(7, computerCards);
-            
-
         }
+
+
+
         static public string CoinFlip()
         {
             int flip = random.Next(0, 2);
