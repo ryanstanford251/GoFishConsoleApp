@@ -110,7 +110,7 @@ namespace Cards
             }
         }
 
-        static private void dealCards(int numberOfCards, List<string> player)
+        static public void DealCards(int numberOfCards, List<string> player)
         {
             for (int i = 0; i < numberOfCards; i++)
             {
