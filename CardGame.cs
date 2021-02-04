@@ -14,13 +14,18 @@ namespace Cards
         static public List<string> closedBooks = new List<string>();
 
         static Random random = new Random();
-        
 
-        
+
+
 
 
         static CardGame()
-        {        
+        {
+            setUp();
+        }
+
+        private static void setUp()
+        { 
             deckOfCards.Add("Ace of Hearts");
             deckOfCards.Add("Ace of Diamonds");
             deckOfCards.Add("Ace of Clubs");
